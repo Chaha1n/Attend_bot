@@ -23,7 +23,6 @@ twitter.stream('statuses/filter', { track: "@Attend_bot" }, function (stream) {
 })
 //フォロワーリストの取得
 const params = { screen_name: 'Attend_bot', count: 50 };
-console.log('@' + params.screen_name);
 require('./Before.js')(twitter,params);
 
 //自動でフォローバック
