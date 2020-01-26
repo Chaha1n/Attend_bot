@@ -21,24 +21,10 @@ twitter.stream('statuses/filter', { track: "@Attend_bot" }, function (stream) {
         })
     })
 })
-//自動でフォローを返す
+//フォロワーリストの取得
 const params = { screen_name: 'Attend_bot', count: 50 };
 console.log('@' + params.screen_name);
 require('./Before.js')(twitter,params);
 
-var followers = JSON.parse(fs.readFileSync("followers.json", "utf-8"));
-console.log(followers["users"][0]["screen_name"]);
-for (var i = 0; i < Object.keys(followers["users"]).length; i++) {
-    var target = followers["users"][i].screen_name;
-    twitter.post('friendships/create', { screen_name: target },
-        (error, friendship, responce) => {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                console.log(friendship);
-                console.log(responce);
-            }
-        }
-    );
-}
+//自動でフォローバック
+require('./followers.js').AutoFollow(twitter);
