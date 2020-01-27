@@ -1,6 +1,6 @@
 module.exports = function (twitter) {
     var date = new Date();
-    var cronJob = require('cron').CronJob;
+    var CronJob = require('cron').CronJob;
     const PostTime = '0 0 7-9 * * 1-5';
 
     var month = date.getMonth() + 1;
