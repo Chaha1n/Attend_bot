@@ -13,7 +13,6 @@ module.exports.AutoFollow = function (twitter) {
                 }
                 else {
                     console.log(friendship);
-                    console.log(responce);
                 }
             }
         );
