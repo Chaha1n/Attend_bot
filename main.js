@@ -13,10 +13,10 @@ twitter.stream('statuses/filter', { track: "@Attend_bot" }, function (stream) {
             in_reply_to_status_id: data.id_str
         }, (err, tweet, response) => {
             if (err) {
-                return console.log(err)
+                return console.log(err);
             }
             else {
-                return console.log(tweet)
+                return console.log("From @"+data.user.screen_name,tweet);
             }
         })
     })
