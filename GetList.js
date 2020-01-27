@@ -9,7 +9,6 @@ module.exports = function(twitter,params){;
             }
             else {
                 fs.writeFileSync("followers.json", JSON.stringify(followers) + "\n", "utf-8");
-                console.log(responce);
             }
         }
     );
