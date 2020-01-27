@@ -15,5 +15,5 @@ new CronJob({
     onTick: require('./followers.js').AutoFollow(twitter),
     start:true
 })
-//平日16,17,18時に出席呼びかけ
+//平日15～18:50まで10分おきに出席呼びかけ
 require('./Force.js')(twitter);
