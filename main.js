@@ -1,6 +1,6 @@
 var twitter = require('./Twitter.js')();
 var Cronjob = require("cron").CronJob
-var FollowTime = '0 0 * * *'
+const FollowTime = '0 0 * * *'
 const fs = require('fs');
 
 //メンションされた時の処理
