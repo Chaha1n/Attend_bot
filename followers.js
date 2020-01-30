@@ -11,10 +11,10 @@ module.exports =
                         console.log(error);
                     }
                     else {
-                        console.log(friendship);
+                        console.log('Follow Successed');
                     }
                 }
             );
         }
-        console.log('Follow Successed')
+        
     }
