@@ -1,12 +1,12 @@
 module.exports = function (twitter) {
     var date = new Date();
     var CronJob = require('cron').CronJob;
-    const PostTime = '0 /10  6-9 * 1-5';
-
+    const PostTime = '0 */10 6-9 * * 1-5';
     var month = date.getMonth() + 1;
     var day = date.getDate();
     var hour = date.getUTCHours() + 9;
     var minute = date.getUTCMinutes();
+
 
     new CronJob({
         cronTime: PostTime,
@@ -19,6 +19,6 @@ module.exports = function (twitter) {
                 }
             })
         },
-        start:true
+        start: true
     })
 }
