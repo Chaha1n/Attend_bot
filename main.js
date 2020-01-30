@@ -5,9 +5,20 @@ const fs = require('fs');
 require("./Mention.js")(twitter);
 //フォロワーリストを取得しFollowers.jsonに書き込み
 const params = { screen_name: 'Attend_bot', count: 50 };
-require('./GetList.js')(twitter,params);
+require('./GetList.js')(twitter, params);
 
-//毎日毎時ちょうどに自動でフォローバック
-require('./followers.js')(twitter);
+//毎時ちょうどにフォロバ
+var CronJob = require("cron").CronJob
+const FollowTime = '0 0 * * * *'
+new CronJob({
+    cronTime: FollowTime,
+    onTick: require('./followers.js')(twitter),
+    start: true
+});
 //平日15～18:50まで10分おきに出席呼びかけ
-require('./Force.js')(twitter);
+const PostTime = '0 */10 6-9 * * 1-5';
+new CronJob({
+    cronTime: PostTime,
+    onTick: require('./Force.js')(twitter),
+    start: true
+})
