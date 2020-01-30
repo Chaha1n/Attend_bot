@@ -11,10 +11,9 @@ module.exports =
                         console.log(error);
                     }
                     else {
-                        console.log('Follow Successed');
                     }
                 }
             );
         }
-        
+        console.log('Follow Successed');
     }
