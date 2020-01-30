@@ -1,5 +1,5 @@
-module.exports =
-    function (twitter) {
+module.exports = function () {
+    var twitter = require('./Twitter.js')();
         var fs = require('fs');
         var followers = JSON.parse(fs.readFileSync("followers.json", "utf-8"));
         console.log(followers["users"][0]["screen_name"]);
