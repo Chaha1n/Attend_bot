@@ -13,10 +13,10 @@ const FollowTime = '0 0 * * * *'
 new CronJob({
     cronTime: FollowTime,
     onTick: require('./followers.js')(twitter),
-    start: true
+    start: true,
 });
 //平日15～18:50まで10分おきに出席呼びかけ
-const PostTime = '0 */10 6-9 * * 1-5';
+const PostTime = '0 0 6-9 * * 1-5';
 new CronJob({
     cronTime: PostTime,
     onTick: require('./Force.js')(twitter),
