@@ -13,4 +13,5 @@ module.exports = function (twitter) {
             return console.log(err);
         }
     })
+    console.log('Tweet successed')
 }
