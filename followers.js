@@ -15,5 +15,5 @@ module.exports = function () {
                 }
             );
         }
-        console.log('Follow Successed');
+        console.log('Follow Succeed');
     }
