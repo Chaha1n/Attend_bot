@@ -14,20 +14,25 @@ var CronJob = require("cron").CronJob
 const FollowTime = '0 0 * * * *'
 new CronJob({
     cronTime: FollowTime,
-    onTick: require('./followers.js')(twitter),
+    onTick: function () { require('./followers.js')(twitter) },
+    start: true
+});
+new CronJob({
+    cronTime: FollowTime,
+    onTick: function () { require('./GetList.js')(twitter) },
     start: true
 });
 //平日15～18:50まで10分おきに出席呼びかけ
 const PostTime = '0 * * * * *';
 new CronJob({
     cronTime: PostTime,
-    onTick: require('./Call.js')(twitter),
+    onTick: function () { require('./Call.js')(twitter) },
     start: true
 })
 app.set('port', (process.env.PORT || 5000));
 app.get('/', function (req, res) {
     res.send("Hello World");
 })
-app.listen(app.get('port'), function (){
-    console.log("Node app is runnning at localhost:"+app.get('port'))
+app.listen(app.get('port'), function () {
+    console.log("Node app is runnning at localhost:" + app.get('port'))
 })
