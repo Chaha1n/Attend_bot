@@ -19,7 +19,7 @@ new CronJob({
 });
 new CronJob({
     cronTime: FollowTime,
-    onTick: function () { require('./GetList.js')(twitter) },
+    onTick: function () { require('./GetList.jsb')(twitter) },
     start: true
 });
 //平日15～18:50まで10分おきに出席呼びかけ
@@ -32,6 +32,7 @@ new CronJob({
 app.set('port', (process.env.PORT || 5000));
 app.get('/', function (req, res) {
     res.send("Hello World");
+    console.log("Send Succeed")
 })
 app.listen(app.get('port'), function () {
     console.log("Node app is runnning at localhost:" + app.get('port'))
